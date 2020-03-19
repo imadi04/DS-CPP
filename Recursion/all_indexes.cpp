@@ -1,3 +1,9 @@
+/*
+Given an array of length N and an integer x, you need to find 
+all the indexes where x is present in the input array. 
+Save all the indexes in an array (in increasing order).
+Do this recursively. Indexing in the array starts from 0.
+*/
 #include<iostream>
 using namespace std;
 
