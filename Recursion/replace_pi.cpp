@@ -3,32 +3,37 @@
 using namespace std;
 
 
-int pow(int x, int n){
-    int ans=1;
-    while(n--)
-        ans*=x;
-    return ans;
-}
-
-int stringToNumber(char input[]) {
+void replacePi(char input[]) {
     
-    // Write your code here
-   while(*input!='\0'){
-       int l=strlen(input);
-       int ans=stringToNumber(input+1);
-       //'1'-48=1; '2'-48=2 and so on..
-       return ((input[0]-48)*pow(10,l-1))+ans;
-       
-   }
-       
+	// Wr(ite your code here
+    while(*input!='\0'){
+        
+        if(input[0]=='p' && input[1]=='i'){
+            replacePi(input+2);
+            int l=strlen(input)-1;
+            while(l>=2){
+                input[l+2]=input[l];
+                l--;
+            }
+                
+            input[0]='3';
+            input[1]='.';
+            input[2]='1';
+            input[3]='4';   
+        
+        }
+        else{
+            replacePi(input+1);
+        }
+       break;
+    }
 }
-
-
 
 
 
 int main() {
-    char input[50];
-    cin >> input;
-    cout << stringToNumber(input) << endl;
+     char input[10000];
+    cin.getline(input, 10000);
+    replacePi(input);
+    cout << input << endl;
 }
