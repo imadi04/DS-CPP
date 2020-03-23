@@ -1,5 +1,6 @@
 // C++ code to demonstrate the working of capacity(), resize() and shrink_to_fit() 
-#include<bits/stdc++.h> 
+#include<iostream>
+#include<string> 
 using namespace std; 
 int main() 
 { 

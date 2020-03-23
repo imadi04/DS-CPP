@@ -1,5 +1,6 @@
 // C++ code to demonstrate the working of getline(), push_back() and pop_back() 
-#include<bits/stdc++.h> 
+#include<iostream>
+#include<string>
 using namespace std; 
 int main() 
 { 
