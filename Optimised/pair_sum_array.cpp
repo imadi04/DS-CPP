@@ -26,59 +26,12 @@ Sample Output :
 3 4
 */
 #include <iostream>
+#include<algorithm>
 using namespace std;
-
-void merge(int arr[],int l,int m,int r){
-    int nl=m-l+1;
-    int nr=r-m;
-    int *left=new int[nl];
-    int *right=new int[nr];
-   // int all[r+1];
-    for(int i=0;i<nl;i++)
-        left[i]=arr[l+i];
-     for(int i=0;i<nr;i++)
-        right[i]=arr[m+1+i];
-    int i=0;
-    int j=0;
-    int k=l;
-    while(i<nl && j<nr){
-        if(left[i]<=right[j]){
-            arr[k]=left[i];
-            i++;
-        }
-        else{
-            arr[k]=right[j];
-            j++;
-        }
-        k++;
-    }
-    while(i<nl){
-        arr[k]=left[i];
-        i++;
-        k++;
-    }
-    while(j<nr){
-        arr[k]=right[j];
-        j++;
-        k++;
-    }
-    
-}
-
-void mergesort(int input[],int start,int end){
-    if(start<end){
-        
-        int mid=(start+end)/2;
-        mergesort(input,start,mid);
-        mergesort(input,mid+1,end);
-        merge(input,start,mid,end);
-    }
-    
-}
 
 
 void pairSum(int input[], int size, int x) {
-    mergesort(input,0,size-1);
+    sort(input,input+size);
     int i=0,j=size-1;
     while(i<j){
         if(input[i]+input[j]==x){

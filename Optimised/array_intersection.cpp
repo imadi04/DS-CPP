@@ -9,56 +9,10 @@ Input arrays can contain duplicate elements.
 #include <map>
 using namespace std;
 
-void merge(int arr[],int l,int m,int r){
-    int nl=m-l+1;
-    int nr=r-m;
-    int *left=new int[nl];
-    int *right=new int[nr];
-   // int all[r+1];
-    for(int i=0;i<nl;i++)
-        left[i]=arr[l+i];
-     for(int i=0;i<nr;i++)
-        right[i]=arr[m+1+i];
-    int i=0;
-    int j=0;
-    int k=l;
-    while(i<nl && j<nr){
-        if(left[i]<=right[j]){
-            arr[k]=left[i];
-            i++;
-        }
-        else{
-            arr[k]=right[j];
-            j++;
-        }
-        k++;
-    }
-    while(i<nl){
-        arr[k]=left[i];
-        i++;
-        k++;
-    }
-    while(j<nr){
-        arr[k]=right[j];
-        j++;
-        k++;
-    }
-    
-}
 
-void mergesort(int input[],int start,int end){
-    if(start<end){
-        
-        int mid=(start+end)/2;
-        mergesort(input,start,mid);
-        mergesort(input,mid+1,end);
-        merge(input,start,mid,end);
-    }
-    
-}
 void intersection(int input1[], int input2[], int size1, int size2) {
-    mergesort(input1,0,size1-1);
-    mergesort(input2,0,size2-1);
+    sort(input1,input1+size1);
+    sort(input2,input2+size2);
     int i=0;
     int j=0;
     if(size1>size2){
