@@ -4,11 +4,11 @@ To find all prime numbers less than n
 
 #include<conio.h>
 #include<math.h>
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 int SieveOfEratosthenes(int n){
-	bool prime[n+1];
+	bool *prime=new bool[n+1];
 	memset(prime,true,sizeof(prime));
 	
 	for(int p=2;p*p<=n;p++){
