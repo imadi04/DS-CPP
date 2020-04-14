@@ -28,6 +28,41 @@ bool checkBalanced(char *exp) {
         //flag=true;
     return s.size()==0;
 }
+// Second approach
+string isBalanced(string s) {
+    stack<char> st;  
+    
+    for (auto c: s) {
+        switch (c) {
+            case '{':
+            case '(':
+            case '[':
+                st.push(c);
+                break;
+            case '}':
+                if (st.empty() || (st.top() != '{')) {
+                    return "NO";
+                }
+                st.pop();
+                break;
+            case ')':
+                if (st.empty() || (st.top() != '(')) {
+                    return "NO";
+                }
+                st.pop();
+                break;
+            case ']':
+                if (st.empty() || (st.top() != '[')) {
+                    return "NO";
+                }
+                st.pop();
+                break;
+        }
+    }
+    
+    return st.empty() ? "YES" : "NO";
+
+}
 
 int main() {
     char input[100000];
