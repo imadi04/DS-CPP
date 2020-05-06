@@ -28,10 +28,8 @@ int minCount(int n){
     ans[3]=3;
     for(int i=4;i<=n;i++){
         ans[i]=i;
-        for(int j=1;j<=i/2;j++){
+        for(int j=1;j<=sqrt(i);j++){
             int t=j*j;
-            if(t>i)
-                break;
             ans[i]=min(ans[i],1+ans[i-t]);
         }
     }
