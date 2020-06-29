@@ -19,7 +19,7 @@ void printIthNode(Node *head, int i) {
             return;
         }
         c++;
-        temp==temp->next;
+        temp=temp->next;
     }
 }
 
